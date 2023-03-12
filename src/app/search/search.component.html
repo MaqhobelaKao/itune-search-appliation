@@ -1,0 +1,21 @@
+<form class="form-inline">
+    <div class="form-group">
+        <input type="search" 
+        class="form-control" 
+        placeholder="Enter search string"
+        #search>
+    </div>
+    <button class=" btn btn-primary" type="button" (click)="onSearch(search.value)">Search</button>
+</form>
+<hr/>
+
+<div class="text-center">
+    <p class="lead" *ngIf="loading">Loading... </p>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let track of itunes.results">
+        <img class="m-10" src="{{ track.thumbnail}}">
+        <a target="_blank" class=" " href="{{track.link}}">{{ track.name }}</a>
+    </li>
+</ul>
